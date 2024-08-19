@@ -1,14 +1,11 @@
 <script setup>
 import { ShoppingCart, Search } from 'lucide-vue-next';
+import { routes } from '@/main';
 import { ref } from 'vue';
+import MenuItem from './MenuItem.vue';
 
 
-const headerButtons =ref([
-  {name: 'Category'},
-  {name: 'Deals'},
-  {name: 'Whats\'s new'},
-  {name: 'Delivery'},
-])
+const menuLinks =ref(routes)
 
 </script>
 
@@ -19,8 +16,14 @@ const headerButtons =ref([
       <p class="font-bold text-2xl text-green-900">SokoMax</p> 
     </div>
     <div  class="border border-black flex flex-row gap-2 items-center">
-      <div v-for="(info, index) in headerButtons" :key="`id-${index}`" class="hover:bg-gray-50 text-sm border border-black p-2 rounded-md">
-        {{ info.name }}
+      <div v-for="(menu, index) in menuLinks" :key="`id-${index}`" class="hover:bg-gray-50 text-sm border border-black p-2 rounded-md">
+        <div v-if="menu.children" >
+          <P>{{ menu.title }}</P>
+          <div v-for="(child, childIndex) in menu.children" :key="`child-${childIndex}`">
+            <MenuItem :item="child"/>
+          </div>
+        </div>
+        <MenuItem v-else :item="menu" />
       </div>
     </div>
     <div class="border border-black relative flex flex-row gap-6 items-center">

@@ -1,18 +1,17 @@
 <script setup>
 import MyHeader from './components/MyHeader.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { RouterView } from 'vue-router';
+import Electronics from './components/Electronics.vue'
 </script>
 
 <template>
   <header>
       <MyHeader/>
   </header>
-
   <main>
-    <TheWelcome />
+    <Electronics/>
   </main>
 </template>
-
 <style scoped>
 
 </style>
