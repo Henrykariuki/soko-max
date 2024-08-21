@@ -16,7 +16,7 @@ import Delivery from './pages/Delivery.vue'
 const routes = [
     {
         path: '/categories', title: 'Categories', children: [
-            { path: '/electronics', component: Electronics, title: 'electronics' },
+            { path: '/electronics', component: Electronics, title: 'Electronics' },
             { path: '/bags', component: Bags, title: 'Bags' },
             { path: '/dresses', component: Dresses, title: 'Dresses' },
             { path: '/trousers', component: Trousers, title: 'Trousers' },
