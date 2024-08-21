@@ -18,9 +18,8 @@ const menuLinks =ref(routes)
     <div  class="border border-black flex flex-row gap-2 items-center">
       <div v-for="(menu, index) in menuLinks" :key="`id-${index}`" class="hover:bg-gray-50 text-sm border border-black p-2 rounded-md">
         <div v-if="menu.children" >
-          <P>{{ menu.title }}</P>
-          <div v-for="(child, childIndex) in menu.children" :key="`child-${childIndex}`">
-            <MenuItem :item="child"/>
+          <div >
+            <MenuItem :item="menu"/>
           </div>
         </div>
         <MenuItem v-else :item="menu" />

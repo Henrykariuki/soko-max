@@ -1,11 +1,9 @@
 <script setup>
-
 </script>
 <template>
     <div>
-        Electronics
+        What's New
     </div>
 </template>
-<style scoped>
-
+<style>
 </style>

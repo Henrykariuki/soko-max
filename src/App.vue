@@ -1,15 +1,15 @@
 <script setup>
 import MyHeader from './components/MyHeader.vue'
 import { RouterView } from 'vue-router';
-import Electronics from './components/Electronics.vue'
+import Electronics from './pages/categories/Electronics.vue'
 </script>
 
 <template>
   <header>
-      <MyHeader/>
+      <MyHeader></MyHeader>
   </header>
-  <main>
-    <Electronics/>
+  <main >
+    <RouterView></RouterView>
   </main>
 </template>
 <style scoped>

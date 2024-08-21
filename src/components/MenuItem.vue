@@ -25,15 +25,13 @@ const props = defineProps({
 
 </script>
 <template>
-    <div @click="onclick" >
-        <div class="flex flex-row gap-2">
-            <p>{{ item.title }}</p>
-            <ChevronUp v-if="expanded && item.children" size="15"/>
-            <ChevronDown v-else-if="item.children" size="15"/>
-        </div>
-        <div v-if="item.children && expanded">
-            <MenuItem v-for="(root, rootIndex) in item.children" :key="`root-${rootIndex}`" :item="root" />
-        </div>
+    <div @click="onclick" class="flex flex-row gap-2 items-center">
+        <p class="font-semibold">{{ item.title }}</p>
+        <ChevronUp v-if="expanded && item.children" size="15"/>
+        <ChevronDown v-else-if="item.children" size="15"/>
+    </div>
+    <div v-if="item.children && expanded">
+        <MenuItem v-for="(root, rootIndex) in item.children" :key="`root-${rootIndex}`" :item="root" />
     </div>
 </template>
 <style scoped>
