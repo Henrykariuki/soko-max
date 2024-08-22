@@ -1,11 +1,12 @@
 <script setup>
+import ProductDetails from '@/components/ProductDetails.vue';
+
 
 </script>
 <template>
     <div>
-        Trousers
+        <ProductDetails/>
     </div>
 </template>
-<style scoped>
-
+<style>
 </style>

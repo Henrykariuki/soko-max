@@ -10,6 +10,7 @@ import Accessories from './pages/categories/Accessories.vue'
 import Deals from './pages/Deals.vue'
 import WhatsNew from './pages/WhatsNew.vue'
 import Delivery from './pages/Delivery.vue'
+import HomePage from './pages/HomePage.vue'
 
 
 
@@ -26,6 +27,7 @@ const routes = [
     { path: '/deals', component: Deals, title: 'Deals' },
     { path: '/whats-new', component: WhatsNew, title: 'Whats\'s new' },
     { path: '/delivery', component: Delivery, title: 'Delivery' },
+    { path: '/:id', name: 'home', component: HomePage, title: '' }
 ]
 
 

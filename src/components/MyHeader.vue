@@ -3,20 +3,28 @@ import { ShoppingCart, Search } from 'lucide-vue-next';
 import { routes } from '@/main';
 import { ref } from 'vue';
 import MenuItem from './MenuItem.vue';
-
+import { useRouter } from 'vue-router';
 
 const menuLinks =ref(routes)
+
+const router = useRouter()
+
+const goHome = ()=>{
+router.push({name: 'home', params: {id: 'home'}})
+}
+
 
 </script>
 
 <template>
   <div class="border border-black flex justify-between">
-    <div class="border border-black flex items-center">
-      <img class="w-14 h-14" src="/images/sokologo.jpg">
+    <div @click="goHome"
+     class="border border-black hover:bg-gray-200 transition-hover duration-100 rounded-md flex items-center">
+      <img class="w-12 h-10 p-1" src="/images/sokologo.jpg">
       <p class="font-bold text-2xl text-green-900">SokoMax</p> 
     </div>
     <div  class="border border-black flex flex-row gap-2 items-center">
-      <div v-for="(menu, index) in menuLinks" :key="`id-${index}`" class="hover:bg-gray-50 text-sm border border-black p-2 rounded-md">
+      <div v-for="(menu, index) in menuLinks" :key="`id-${index}`" class="hover:bg-gray-50 text-sm  p-2 rounded-md">
         <div v-if="menu.children" >
           <div >
             <MenuItem :item="menu"/>
