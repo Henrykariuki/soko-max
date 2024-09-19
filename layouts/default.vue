@@ -1,6 +1,6 @@
 <script setup>
 import { ShoppingCart, Search } from 'lucide-vue-next';
-import { useRouter } from '#app'; // Nuxt-specific router import
+import { useRouter } from '#app';
 import MenuItem from '~/components/MenuItem.vue'; // Nuxt uses ~/ for root path imports
 
 const menuLinks = ref([
@@ -14,7 +14,7 @@ const menuLinks = ref([
     { path: '/deals', title: 'Deals' },
     { path: '/whatsnew', title: 'Whats\'s New' },
     { path: '/delivery', title: 'Delivery' },
-    // Add your routes here, similar to the routes in your Vue 3 code
+    
 ]);
 
 const router = useRouter();
@@ -26,11 +26,11 @@ const goHome = () => {
 <template>
     <div>
         <div class="border border-black flex justify-between">
-            <div @click="goHome"
+            <NuxtLink to="/"
                 class="border border-black hover:bg-gray-200 transition-hover duration-100 rounded-md flex items-center cursor-pointer">
             <img class="w-12 h-10 p-1" src="/images/sokologo.jpg" alt="SokoMax Logo">
             <p class="font-bold text-2xl text-green-900">SokoMax</p>
-            </div>
+            </NuxtLink>
             <div class="border border-black flex flex-row gap-2 items-center">
             <div v-for="(menu, index) in menuLinks" :key="`id-${index}`"
                 class="hover:bg-gray-100 transition-hover duration-100 text-sm p-2 rounded-md">
