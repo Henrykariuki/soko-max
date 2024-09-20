@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+    layout: 'product-details'
+})
 </script>
 <template>
     <div>

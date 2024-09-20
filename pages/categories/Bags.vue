@@ -1,7 +1,6 @@
 <script setup>
 
 
-import { ref } from 'vue';
 
 const bags = ref([
     {image: '/images/bags/wbag01.jpg', text1: 'Sleek Evil Eye', text2: 'Companion Pouch', price: '20',},
