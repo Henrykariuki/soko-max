@@ -24,7 +24,7 @@ const onclick = () => {
 
 <template>
   <div class="relative">
-    <div @click="onclick" class="flex flex-row gap-2 items-center cursor-pointer">
+    <div @click="onclick" class="flex flex-row gap-14 items-center cursor-pointer">
       <p class="font-semibold">{{ item.title }}</p>
       <ChevronUp v-if="expanded && item.children" size="15" />
       <ChevronDown v-else-if="item.children" size="15" />
