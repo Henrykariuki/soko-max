@@ -29,7 +29,7 @@ const goHome = () => {
 </script>
 <template>
     <div>
-        <div class="border border-red-500 py-4 flex flex-col gap-8">
+        <div class="border border-red-500 py-5 flex flex-col gap-8">
             <div class=" flex justify-between">
                 <NuxtLink to="/"
                         class=" hover:bg-gray-200 transition-hover duration-100 rounded-md flex items-center cursor-pointer">

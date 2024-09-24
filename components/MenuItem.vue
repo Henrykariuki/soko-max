@@ -31,7 +31,7 @@ const onclick = () => {
     </div>
     <Transition name="fade">
       <div v-if="item.children && expanded"
-           class="absolute -left-2 mt-2 p-4 leading-8 z-50 bg-white shadow-lg border rounded-md">
+           class="absolute -left-2 mt-2 py-4 pl-4 pr-12 leading-8 z-50 bg-white shadow-lg border rounded-md">
         <MenuItem v-for="(root, rootIndex) in item.children" :key="`root-${rootIndex}`" :item="root" />
       </div>
     </Transition>
