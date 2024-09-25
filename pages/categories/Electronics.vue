@@ -1,29 +1,46 @@
 <script setup>
 
+const { data: products } = await useFetch('https://fakestoreapi.com/products')
 
-import { ref } from 'vue';
-
-const televisions = ref([
-    {image: '/images/tvs/tcl01.jpg', text1: 'TCL 43P725 43 inch', text2: 'Android LED TV', price: '155',},
-    {image: '/images/tvs/tcl02.jpg', text1: 'TCL 28P725 28 inch', text2: 'Android LED TV', price: '125',},
-    {image: '/images/tvs/tcl03.jpg', text1: 'TCL 55P725 55 inch', text2: 'Android LED TV', price: '190',},
-    {image: '/images/tvs/tcl04.jpg', text1: 'TCL 24D3100 24 inch', text2: 'Android LED TV', price: '104',},
-    {image: '/images/tvs/tcl05.jpg', text1: 'TCL 55C635 55 inch', text2: 'Android QLED TV', price: '230',},
-    {image: '/images/tvs/tcl06.jpg', text1: 'TCL 32P725 32 inch', text2: 'Android LED TV', price: '110',},
-    {image: '/images/tvs/tcl07.jpg', text1: 'TCL 32D3200 32 inch', text2: 'Android LED TV', price: '107',},
-    {image: '/images/tvs/tcl13.jpg', text1: 'TCL 32D2900 32 inch', text2: 'Android LED TV', price: '104',},
-    {image: '/images/tvs/tcl12.jpg', text1: 'TCL 43P725 43 inch', text2: 'Android QLED TV', price: '160',},
-    {image: '/images/tvs/tcl14.jpg', text1: 'TCL 43P725 43 inch', text2: 'Android LED TV', price: '158',},
-    {image: '/images/tvs/tcl09.jpg', text1: 'TCL 55P725 43 inch', text2: 'Android QLED TV', price: '230',}
-])
 </script>
 <template>
-    <div class="p-4">
+<div class="p-4">
         <BreadCrumb/>
-    </div>
-    <div class=" grid grid-cols-5 gap-4 p-4">
-        <ProductCard v-for="(info, index) in televisions" :key="`id-${index}`" :item="info" />
-    </div>
+</div>
+<div class=" grid grid-cols-5 gap-4 p-4">
+   <div v-for="product in products">
+        <div class="border border-gray-300 rounded-lg p-4 hover:shadow-lg hover:shadow-indigo-500/50 transition-shadow duration-300">
+            <div class="relative">
+                <img class="rounded-md h-52" :src="product.image">
+                <div class=" absolute p-1 rounded-full flex items-center bg-gray-200 top-2 right-2">
+                    <Heart size="14"/>
+                </div>
+            </div>
+            <div class="flex justify-between my-2">
+                <div>
+                    <p class="font-medium ">{{ product.title }}</p>
+                    <p class="text-gray-600 text-sm my-1">{{ product.description }}</p>
+                    <div class="flex flex-row gap-1 items-center">
+                        <Star size="12"/>
+                        <Star size="12"/>
+                        <Star size="12"/>
+                        <Star size="12"/>
+                        <Star size="12"/>
+                        <p class="text-gray-600 text-xs">(121)</p>
+                    </div>
+                </div>
+                <div >
+                    <div class="font-medium flex">
+                        <span class="text-xs">$</span><p class="text-sm">{{ product.price }}</p><span class="text-xs">.04</span>
+                    </div>
+                </div>
+            </div>
+            <button class="rounded-full hover:bg-gray-200 border border-black text-xs py-1 px-2">
+                Add to Cart
+            </button>
+        </div>
+   </div>
+</div>
 </template>
 <style scoped>
 
