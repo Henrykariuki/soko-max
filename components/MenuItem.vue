@@ -3,36 +3,36 @@ import { ChevronDown, ChevronUp } from 'lucide-vue-next';
 import { ref } from 'vue';
 import { useRouter } from '#app'; // Nuxt-specific router import
 
-const expanded = ref(false);
+
 const router = useRouter();
 
-const props = defineProps({
-    item: {
-        type: Object,
-        required: true
-    }
-});
+const categories = useCategories()
 
-const onclick = () => {
-    if (props.item.children) {
-        expanded.value = !expanded.value;
-    } else {
-        router.push({ path: props.item.path });
-    }
+const isExpanded = ref(false);
+
+const toggleCategories = () => {
+  isExpanded.value = !isExpanded.value;
 };
+
+
+
 </script>
 
 <template>
   <div class="relative">
-    <div @click="onclick" class="flex flex-row gap-14 items-center cursor-pointer">
+    <div @click="toggleCategories" class="flex flex-row gap-14 items-center cursor-pointer">
       <p class="font-semibold">{{ item.title }}</p>
-      <ChevronUp v-if="expanded && item.children" size="15" />
-      <ChevronDown v-else-if="item.children" size="15" />
+      <ChevronUp v-if="!isExpanded" size="15" />
+      <ChevronDown v-else size="15" />
     </div>
     <Transition name="fade">
-      <div v-if="item.children && expanded"
+      <div v-if="isExpanded"
            class="absolute -left-2 mt-2 py-4 pl-4 pr-12 leading-8 z-50 bg-white shadow-lg border rounded-md">
-        <MenuItem v-for="(root, rootIndex) in item.children" :key="`root-${rootIndex}`" :item="root" />
+        <div v-for="category in categories" :key="categories">
+          <NuxtLink>
+            {{ category }}
+          </NuxtLink>
+        </div>
       </div>
     </Transition>
   </div>
