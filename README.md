@@ -75,4 +75,7 @@ bun run preview
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
 
-
+fetch categories in app.vue 
+put categories in state
+https://nuxt.com/docs/getting-started/state-management
+use fetched categories in tool bar

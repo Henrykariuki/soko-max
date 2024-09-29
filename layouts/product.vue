@@ -37,6 +37,8 @@ const decreament = ()=>{
     count.value--
 }
 
+
+
 </script>
 <template>
     <div class="grid grid-cols-2 gap-x-10 ">
@@ -57,6 +59,7 @@ const decreament = ()=>{
                 </div>
                 <div>
                     <p class="text-gray-600">The Tan Kodiak Tote is a classic leather tote bag handmade in the USA with heirloom-quality craftsmanship and the very best materials. Tan Kodiak is an iconic KMM & Co. leather with a pebbled grain and lots of character. The Tan Kodiak Tote comes standard with Tan handles.</p>
+                    <p>my id {{ id }}</p>
                 </div>
                 <div class="flex items-center">
                     <div v-for="(star, index) in ratings" :key="index">
