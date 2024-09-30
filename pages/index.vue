@@ -1,5 +1,5 @@
 <script setup>
-
+import {Star, Heart } from 'lucide-vue-next';
 const { data: products } = await useFetch('https://fakestoreapi.com/products');
 
 </script>
@@ -21,7 +21,7 @@ const { data: products } = await useFetch('https://fakestoreapi.com/products');
                 <p class="font-medium line-clamp-2 ">{{ product.title }}</p>
                 <p class="text-gray-600 line-clamp-3 text-sm my-1">{{ product.description }}</p>
                 <div class="flex flex-row gap-1 items-center">
-                    <Star size="12" v-for="i in 5" :key="i"/>
+                    <Star v-for="i in 5" :key="i" size="16" />
                     <p class="text-gray-600 text-xs">(121)</p>
                 </div>
             </div>

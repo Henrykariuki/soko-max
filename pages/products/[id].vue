@@ -1,18 +1,20 @@
-<script>
+<script setup>
+import ProductCard from '~/components/ProductCard.vue';
+import { useRoute } from 'vue-router';
 
 
+const route = useRoute()
+const category = route.params.id
 
-const {id} = useRoute().params
-
-
+const capitalizeCategory = (category) => {
+    return category.charAt(0).toUpperCase() + category.slice(1)
+}
 
 </script>
 <template>
 <div>
-    <p>my id{{ id }}</p>
-    <div>
-        <slot/>
-    </div>
+    <p>my id: {{capitalizeCategory(category)}}</p>
+    <ProductCard/>
 </div>
 </template>
 <style scoped>
