@@ -1,5 +1,4 @@
 <script setup>
-import {Star, Heart } from 'lucide-vue-next';
 const { data: products } = await useFetch('https://fakestoreapi.com/products');
 
 </script>
