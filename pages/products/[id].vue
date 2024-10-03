@@ -3,12 +3,6 @@ import { Star, Minus, Plus } from 'lucide-vue-next';
 import { useRoute } from 'vue-router';
 import Id from '../categories/[id].vue';
 
-const photos = [
-    { image: '/images/dresses/dress07.jpg' },
-    { image: '/images/dresses/dress07.jpg' },
-    { image: '/images/dresses/dress07.jpg' },
-    { image: '/images/dresses/dress07.jpg' }
-]
 
 
 const buttons = [
@@ -29,7 +23,7 @@ const increament = () => {
 }
 
 const decreament = () => {
-    count.value--
+    if (count.value > 1) count.value--
 }
 
 const route = useRoute()
@@ -40,14 +34,15 @@ const { data } = await useFetch(`https://fakestoreapi.com/products/${productId}`
 
 </script>
 <template>
-    <div >
+    <div>
         <div class="grid grid-cols-2 gap-x-10 ">
             <div class=" flex flex-col items-center gap-4">
                 <div>
                     <img class="w-96 h-96 object-cover rounded-md" :src="data.image">
                 </div>
-                <div class="flex flex-row gap-4">
-                    <div>
+                <div class="flex flex-row gap-2">
+                    <div v-for="i in 4" :key="i"
+                        class=" hover:border-2 hover:border-indigo-500 rounded-md transition-border duration-50">
                         <img class="w-20 h-20 object-cover rounded-md " :src="data.image">
                     </div>
                 </div>

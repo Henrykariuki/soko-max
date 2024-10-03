@@ -68,7 +68,7 @@ const capitalizeCategory = (category) => {
                 <div class="flex flex-row gap-2">
                     <div v-for="category in categories" :key="category">
                         <NuxtLink :to="`/categories/${category}`"
-                            class="hover:bg-gray-100 border border-slate-300 p-2 rounded-full">
+                            class="hover:bg-indigo-100 border border-slate-300 p-2 rounded-full">
                             {{ capitalizeCategory(category) }}
                         </NuxtLink>
                     </div>
