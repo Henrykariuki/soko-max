@@ -1,7 +1,7 @@
 <script setup>
 </script>
 <template>
-    <div class="pb-40">
+    <div class="px-1">
         <MyHeader/>
         <div>
             <slot/>

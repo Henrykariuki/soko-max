@@ -12,10 +12,10 @@ const capitalizeCategory = (category) => {
 const { data, error, status } = await useFetch(`https://fakestoreapi.com/products/category/${category}`)
 </script>
 <template>
-  <div class="flex flex-col gap-4 w-10/12 mx-auto">
+  <div class="md:flex md:flex-col md:gap-4 md:w-10/12 md:mx-auto">
     <h1 class="text-2xl font-bold">{{capitalizeCategory(category)}}</h1>
     <pre>{{ status }}</pre>
-    <div class=" grid grid-cols-5 gap-4 p-4">
+    <div class="grid grid-cols-2 gap-4 md:grid md:grid-cols-5 md:gap-4 md:p-4">
       <ProductCard v-for="product in data" :key="product" :product="product" />
     </div>
   </div>
