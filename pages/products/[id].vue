@@ -1,7 +1,7 @@
 <script setup>
 import { Star, Minus, Plus } from 'lucide-vue-next';
 import { useRoute } from 'vue-router';
-import Id from '../categories/[id].vue';
+
 
 
 
@@ -23,7 +23,7 @@ const increament = () => {
 }
 
 const decreament = () => {
-    if (count.value > 1) count.value--
+    if (count.value > 0) count.value--
 }
 
 const route = useRoute()
@@ -35,10 +35,10 @@ const { data } = await useFetch(`https://fakestoreapi.com/products/${productId}`
 </script>
 <template>
     <div>
-        <div class="grid grid-cols-2 gap-x-10 ">
+        <div class="md:grid md:grid-cols-2 md:gap-x-10 ">
             <div class=" flex flex-col items-center gap-4">
                 <div>
-                    <img class="w-96 h-96 object-cover rounded-md" :src="data.image">
+                    <img class="h-80 rounded-md" :src="data.image">
                 </div>
                 <div class="flex flex-row gap-2">
                     <div v-for="i in 4" :key="i"
@@ -64,26 +64,27 @@ const { data } = await useFetch(`https://fakestoreapi.com/products/${productId}`
                 </div>
                 <div class="border-b border-slate-200 py-8">
                     <div>
-                        <p class="font-semibold text-lg">{{data.price}}</p>
+                        <p class="font-semibold text-lg">${{data.price}}</p>
                     </div>
                 </div>
-                <div class="border-b border-slate-200 py-8 flex items-center justify-between py-2">
+                <div
+                    class=" border-b border-slate-200 md:py-8 flex flex-row justify-around md:items-center md:justify-between py-2">
                     <div class="flex items-center bg-gray-100 px-1 py-2 rounded-full">
                         <button @click="decreament" class=" py-1 px-3">
                             <Minus size="16" />
                         </button>
-                        <div class=" px-14">{{ count }}</div>
+                        <div class=" px-10 md:px-14">{{ count }}</div>
                         <button @click="increament" class=" py-1 px-3">
                             <Plus size="16" />
                         </button>
                     </div>
-                    <button class=" bg-green-400 hover:bg-green-500  rounded-full px-20 py-2">
+                    <button class="whitespace-nowrap bg-green-400 hover:bg-green-500  rounded-full px-10 md:px-20 py-2">
                         <p class="text-white">Add to cart</p>
                     </button>
                 </div>
-                <div class="border-b border-slate-200 flex items-end h-24 ">
+                <div class="wrapper whitespace-nowrap w-full overflow-auto border-b border-slate-200 flex items-end h-24 ">
                     <div v-for="(info, index) in buttons" :key="`id-${index}`"
-                        :class="activeIndex === index ? 'transition duration-100 px-4 py-2 border-b border-green-600 text-green-600' : 'px-4 py-2 border-b border-slate-200 text-gray-600'"
+                        :class="activeIndex === index ? 'transition duration-100 px-4 py-2 border-b border-indigo-500 text-indigo-500' : 'px-4 py-2 border-b border-slate-200 text-gray-600'"
                         @click="activeIndex = index">
                         <p>{{ info.name }}</p>
                     </div>
@@ -92,4 +93,8 @@ const { data } = await useFetch(`https://fakestoreapi.com/products/${productId}`
         </div>
     </div>
 </template>
-<style></style>
+<style scoped>
+.wrapper::-webkit-scrollbar {
+    width: 0;
+}
+</style>

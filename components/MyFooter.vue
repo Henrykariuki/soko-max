@@ -8,8 +8,8 @@ const company = [
 ]
 </script>
 <template>
-    <div class="w-full mx-2 flex flex-col gap-4 border border-black pb-10 bg-black text-white">
-        <div class="flex flex-col gap-6  border-b py-4 border-white md:mx-12 md:mb-6 md:p-6 md:flex md:justify-between">
+    <div class="flex flex-col gap-4 border border-black pb-10 bg-black text-white">
+        <div class="flex flex-col md:flex-row  md:flex gap-6  border-b py-4 border-white md:mx-12 md:mb-6 md:p-6  md:justify-between">
             <div class="flex flex-col leading-8">
                 <h2 class="text-2xl font-semibold">SokoMax</h2>
                 <p>Create a free online store for your business today</p>
