@@ -36,7 +36,7 @@ const capitalizeCategory = (category) => {
                 </NuxtLink>
                 <div class="relative hidden md:block">
                     <input type="text" placeholder="Search Product"
-                        class="bg-gray-100 border hover:border-indigo-500 transition-hover duration-100 px-4 py-2 w-96 border-gray-300 rounded-full">
+                        class="outline-0 bg-gray-100 border hover:border-indigo-500 transition-hover duration-100 px-4 py-2 w-96 border-gray-300 rounded-full">
                     <button class="rounded-full bg-white p-2 absolute right-2 top-1 text-gray-500">
                         <Search size="16" />
                     </button>
@@ -57,7 +57,7 @@ const capitalizeCategory = (category) => {
             </div>
             <div class=" flex flex-col gap-4 md:flex md:flex-row md:gap-40 md:items-center">
                 <div @click="toggleCategories"
-                    class=" flex flex-row gap-4 w-32 md:gap-14 relative border border-slate-300 p-2 rounded-full items-center cursor-pointer">
+                    class=" flex flex-row gap-4 w-32 md:w-44 md:gap-14 relative border border-slate-300 p-2 rounded-full items-center cursor-pointer">
                     <p class="font-semibold">Categories</p>
                     <ChevronUp v-if="!isExpanded" size="15" />
                     <ChevronDown v-else size="15" />
@@ -72,7 +72,7 @@ const capitalizeCategory = (category) => {
                         </div>
                     </div>
                 </Transition>
-                <div class="wrapper flex w-full overflow-auto md:flex md:flex-row md:gap-2">
+                <div class="wrapper md:py-2 flex w-full overflow-auto md:flex md:flex-row md:gap-2">
                     <div v-for="category in categories" :key="category">
                         <NuxtLink :to="`/categories/${category}`"
                             class="whitespace-nowrap hover:bg-indigo-100 border border-slate-300 p-2 rounded-full">

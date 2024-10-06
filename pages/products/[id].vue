@@ -48,7 +48,7 @@ const { data } = await useFetch(`https://fakestoreapi.com/products/${productId}`
                 </div>
             </div>
             <div class=" pb-20">
-                <div class="border-b border-slate-200 flex flex-col gap-2 py-4">
+                <div class="border-b border-slate-200 flex flex-col gap-6 py-4">
                     <div>
                         <p class="font-bold text-xl">{{data.title}}</p>
                     </div>
