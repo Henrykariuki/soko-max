@@ -27,7 +27,7 @@ const capitalizeCategory = (category) => {
 </script>
 <template>
     <div>
-        <div class=" border-b border-slate-300 mb-4 py-5 flex flex-col gap-4 md:gap-8">
+        <div class="px-4 border-b border-slate-300 mb-4 py-5 flex flex-col gap-4 md:gap-8">
             <div class=" flex justify-between mx-2 md:flex md:justify-between">
                 <NuxtLink to="/"
                     class=" hover:bg-gray-200 transition-hover duration-100 rounded-md flex items-center cursor-pointer">
@@ -72,13 +72,14 @@ const capitalizeCategory = (category) => {
                         </div>
                     </div>
                 </Transition>
-                <div class="wrapper md:py-2 flex w-full overflow-auto md:flex md:flex-row md:gap-2">
+                <div class="wrapper py-2 flex w-full overflow-auto md:flex md:flex-row md:gap-2">
                     <div v-for="category in categories" :key="category">
                         <NuxtLink :to="`/categories/${category}`"
                             class="whitespace-nowrap hover:bg-indigo-100 border border-slate-300 p-2 rounded-full">
                             {{ capitalizeCategory(category) }}
                         </NuxtLink>
                     </div>
+                    <NuxtLink to="/cart">Checkout</NuxtLink>
                 </div>
             </div>
         </div>

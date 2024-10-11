@@ -10,4 +10,9 @@ export default defineNuxtConfig({
             autoprefixer: {},
         },
     },
+    app: {
+        head: {
+            title: 'SokoMax',
+        }
+    }
 })

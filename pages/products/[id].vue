@@ -1,6 +1,7 @@
 <script setup>
 import { Star, Minus, Plus } from 'lucide-vue-next';
 import { useRoute } from 'vue-router';
+import Product from '~/layouts/product.vue';
 
 
 
@@ -31,6 +32,12 @@ const route = useRoute()
 const productId = route.params.id
 
 const { data } = await useFetch(`https://fakestoreapi.com/products/${productId}`)
+
+const cartRoute = useCart()
+
+
+
+
 
 </script>
 <template>
@@ -78,11 +85,13 @@ const { data } = await useFetch(`https://fakestoreapi.com/products/${productId}`
                             <Plus size="16" />
                         </button>
                     </div>
-                    <button class="whitespace-nowrap bg-green-400 hover:bg-green-500  rounded-full px-10 md:px-20 py-2">
+                    <button 
+                        class="whitespace-nowrap bg-green-400 hover:bg-green-500  rounded-full px-10 md:px-20 py-2">
                         <p class="text-white">Add to cart</p>
                     </button>
                 </div>
-                <div class="wrapper whitespace-nowrap w-full overflow-auto border-b border-slate-200 flex items-end h-24 ">
+                <div
+                    class="wrapper whitespace-nowrap w-full overflow-auto border-b border-slate-200 flex items-end h-24 ">
                     <div v-for="(info, index) in buttons" :key="`id-${index}`"
                         :class="activeIndex === index ? 'transition duration-100 px-4 py-2 border-b border-indigo-500 text-indigo-500' : 'px-4 py-2 border-b border-slate-200 text-gray-600'"
                         @click="activeIndex = index">
