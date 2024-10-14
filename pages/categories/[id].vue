@@ -14,7 +14,6 @@ const { data, error, status } = await useFetch(`https://fakestoreapi.com/product
 <template>
   <div class="md:flex md:flex-col md:gap-4 md:w-10/12 md:mx-auto">
     <h1 class="text-2xl font-bold">{{capitalizeCategory(category)}}</h1>
-    <pre>{{ status }}</pre>
     <div class="grid grid-cols-2 gap-4 md:grid md:grid-cols-5 md:gap-4 md:p-4">
       <ProductCard v-for="product in data" :key="product" :product="product" />
     </div>

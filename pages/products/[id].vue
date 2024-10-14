@@ -17,15 +17,6 @@ const buttons = [
 const activeIndex = ref(null);
 
 
-const count = ref(0);
-
-const increament = () => {
-    count.value++
-}
-
-const decreament = () => {
-    if (count.value > 0) count.value--
-}
 
 const route = useRoute()
 
@@ -33,12 +24,15 @@ const productId = route.params.id
 
 const { data } = await useFetch(`https://fakestoreapi.com/products/${productId}`)
 
-const cartRoute = useCart()
 
 
 
 
+const { addToCart, removeFromCart, items, count, increament, decreament} = useCart()
 
+const isInCart = computed(() => {
+    return items.value.find((e)=> e.id == productId)
+})
 </script>
 <template>
     <div>
@@ -85,10 +79,13 @@ const cartRoute = useCart()
                             <Plus size="16" />
                         </button>
                     </div>
-                    <button 
+                    <button v-if="!isInCart" @click="addToCart(data)"
                         class="whitespace-nowrap bg-green-400 hover:bg-green-500  rounded-full px-10 md:px-20 py-2">
                         <p class="text-white">Add to cart</p>
                     </button>
+                    <NuxtLink v-else to="/cart" class="bg-indigo-500 text-white rounded-full px-10 py-2 hover:bg-indigo-600 mr-4">
+                        Checkout
+                    </NuxtLink>
                 </div>
                 <div
                     class="wrapper whitespace-nowrap w-full overflow-auto border-b border-slate-200 flex items-end h-24 ">

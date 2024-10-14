@@ -24,6 +24,12 @@ const toggleCategories = () => {
 const capitalizeCategory = (category) => {
     return category.charAt(0).toUpperCase() + category.slice(1)
 }
+
+const {items} = useCart()
+
+const cartItemsCount = computed( () => {
+    return items.value.length
+})
 </script>
 <template>
     <div>
@@ -37,14 +43,18 @@ const capitalizeCategory = (category) => {
                 <div class="relative hidden md:block">
                     <input type="text" placeholder="Search Product"
                         class="outline-0 bg-gray-100 border hover:border-indigo-500 transition-hover duration-100 px-4 py-2 w-96 border-gray-300 rounded-full">
-                    <button class="rounded-full bg-white p-2 absolute right-2 top-1 text-gray-500">
+                    <button class="absolute  rounded-full bg-white p-2 right-2 top-1 text-gray-500">
                         <Search size="16" />
                     </button>
                 </div>
                 <div class=" flex flex-row gap-6 items-center">
-                    <div class="flex flex-row gap-2">
+                    <div class="relative flex flex-row gap-2">
                         <ShoppingCart />
                         <p class="font-medium">Cart</p>
+                        <div
+                            class="absolute -top-3 left-1.5 w-2 h-2 flex justify-center items-center bg-indigo-700 text-white p-2 rounded-full text-xs">
+                            {{ cartItemsCount }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,7 +89,6 @@ const capitalizeCategory = (category) => {
                             {{ capitalizeCategory(category) }}
                         </NuxtLink>
                     </div>
-                    <NuxtLink to="/cart">Checkout</NuxtLink>
                 </div>
             </div>
         </div>
