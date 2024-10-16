@@ -1,7 +1,7 @@
 <script setup>
 import { Star, Minus, Plus } from 'lucide-vue-next';
 import { useRoute } from 'vue-router';
-import Product from '~/layouts/product.vue';
+
 
 
 
@@ -28,7 +28,7 @@ const { data } = await useFetch(`https://fakestoreapi.com/products/${productId}`
 
 
 
-const { addToCart, removeFromCart, items, count, increament, decreament} = useCart()
+const { addToCart, items, count, increamentQuantity, decreamentQuantity, getProductTotalPrice, } = useCart()
 
 const isInCart = computed(() => {
     return items.value.find((e)=> e.id == productId)
@@ -71,11 +71,11 @@ const isInCart = computed(() => {
                 <div
                     class=" border-b border-slate-200 md:py-8 flex flex-row justify-around md:items-center md:justify-between py-2">
                     <div class="flex items-center bg-gray-100 px-1 py-2 rounded-full">
-                        <button @click="decreament" class=" py-1 px-3">
+                        <button @click="decreamentQuantity(data)" class=" py-1 px-3">
                             <Minus size="16" />
                         </button>
-                        <div class=" px-10 md:px-14">{{ count }}</div>
-                        <button @click="increament" class=" py-1 px-3">
+                        <div class=" px-10 md:px-14">{{  }}</div>
+                        <button @click="increamentQuantity(data)" class=" py-1 px-3">
                             <Plus size="16" />
                         </button>
                     </div>
@@ -83,7 +83,8 @@ const isInCart = computed(() => {
                         class="whitespace-nowrap bg-green-400 hover:bg-green-500  rounded-full px-10 md:px-20 py-2">
                         <p class="text-white">Add to cart</p>
                     </button>
-                    <NuxtLink v-else to="/cart" class="bg-indigo-500 text-white rounded-full px-10 py-2 hover:bg-indigo-600 mr-4">
+                    <NuxtLink v-else to="/cart"
+                        class="bg-indigo-500 text-white rounded-full px-10 md:px-20 py-2 hover:bg-indigo-600 mr-4">
                         Checkout
                     </NuxtLink>
                 </div>

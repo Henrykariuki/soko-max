@@ -48,14 +48,15 @@ const cartItemsCount = computed( () => {
                     </button>
                 </div>
                 <div class=" flex flex-row gap-6 items-center">
-                    <div class="relative flex flex-row gap-2">
+                    <NuxtLink to="/cart"
+                     class="relative flex flex-row gap-1 border px-2 py-1 rounded-md hover:bg-indigo-100">
                         <ShoppingCart />
                         <p class="font-medium">Cart</p>
                         <div
-                            class="absolute -top-3 left-1.5 w-2 h-2 flex justify-center items-center bg-indigo-700 text-white p-2 rounded-full text-xs">
+                            class="absolute -top-3 left-3 w-2 h-2 flex justify-center items-center bg-indigo-700 text-white p-2 rounded-full text-xs">
                             {{ cartItemsCount }}
                         </div>
-                    </div>
+                    </NuxtLink>
                 </div>
             </div>
             <div class="relative md:hidden mx-auto ">
@@ -85,7 +86,7 @@ const cartItemsCount = computed( () => {
                 <div class="wrapper py-2 flex w-full overflow-auto md:flex md:flex-row md:gap-2">
                     <div v-for="category in categories" :key="category">
                         <NuxtLink :to="`/categories/${category}`"
-                            class="whitespace-nowrap hover:bg-indigo-100 border border-slate-300 p-2 rounded-full">
+                            class="whitespace-nowrap hover:bg-indigo-100 hover:text-indigo-500 border border-slate-300 p-2 rounded-full transition-hover duration-100">
                             {{ capitalizeCategory(category) }}
                         </NuxtLink>
                     </div>
