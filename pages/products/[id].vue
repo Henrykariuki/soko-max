@@ -33,6 +33,7 @@ const { addToCart, items, count, increamentQuantity, decreamentQuantity, getProd
 const isInCart = computed(() => {
     return items.value.find((e)=> e.id == productId)
 })
+
 </script>
 <template>
     <div>
@@ -71,13 +72,7 @@ const isInCart = computed(() => {
                 <div
                     class=" border-b border-slate-200 md:py-8 flex flex-row justify-around md:items-center md:justify-between py-2">
                     <div class="flex items-center bg-gray-100 px-1 py-2 rounded-full">
-                        <button @click="decreamentQuantity(data)" class=" py-1 px-3">
-                            <Minus size="16" />
-                        </button>
-                        <div class=" px-10 md:px-14">{{  }}</div>
-                        <button @click="increamentQuantity(data)" class=" py-1 px-3">
-                            <Plus size="16" />
-                        </button>
+                        <QuantityButtons :product="data" />
                     </div>
                     <button v-if="!isInCart" @click="addToCart(data)"
                         class="whitespace-nowrap bg-green-400 hover:bg-green-500  rounded-full px-10 md:px-20 py-2">

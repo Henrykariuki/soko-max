@@ -1,4 +1,5 @@
 <script setup >
+
 import { Minus, Plus, Trash2 } from 'lucide-vue-next';
 
 
@@ -32,15 +33,8 @@ const { items, totalPrice, increamentQuantity, decreamentQuantity, removeFromCar
                 </div>
                 <div class="flex flex-col gap-8 md:justify-between md:items-center">
                     <p class="font-semibold mb-2 text-lg">Quantity</p>
-                    <div class="flex items-center bg-indigo-500 text-white px-3 py-1 rounded-full">
-                        <button @click="decreamentQuantity(product)">
-                            <Minus size="16" />
-                        </button>
-                        <div class=" px-8 md:px-6">{{ product.quantity }}</div>
-                        <button @click="increamentQuantity(product)">
-                            <Plus size="16" />
-                        </button>
-                    </div>
+                    <QuantityButtons :product="product"/>
+                    
                 </div>
             </div>
             <button @click="removeFromCart(product)"
@@ -50,7 +44,7 @@ const { items, totalPrice, increamentQuantity, decreamentQuantity, removeFromCar
             </button>
         </div>
         <NuxtLink to="/">
-            <div class="border-b py-2 text-indigo-500 md:w-9/12">
+            <div class="border-b py-2 text-indigo-500 md:w-9/12 hover:underline">
                 <p>Add more items</p>
             </div>
         </NuxtLink>

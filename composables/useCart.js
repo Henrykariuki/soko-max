@@ -1,11 +1,14 @@
+
 export function useCart () {
   const items = useState('items', () => [])
 
   const totalPrice = computed(() => {
-      return items.value.reduce((sum, product) => sum + product.price, 0)
+      return items.value.reduce((sum, product) => sum + (product.price * product.quantity), 0)
   })
 
-  
+  const totalQuantity = computed(() => {
+    return items.value.reduce((sum, product) => sum + product.quantity, 0)
+  })
 
   const removeFromCart = (item) => {
      items.value = items.value.filter(product => product.id !== item.id);
@@ -45,6 +48,7 @@ export function useCart () {
     removeFromCart,
     increamentQuantity, 
     decreamentQuantity, 
-    getProductTotalPrice 
+    getProductTotalPrice,
+    totalQuantity 
   }
 }

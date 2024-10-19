@@ -25,7 +25,7 @@ const capitalizeCategory = (category) => {
     return category.charAt(0).toUpperCase() + category.slice(1)
 }
 
-const {items} = useCart()
+const {items, totalQuantity} = useCart()
 
 const cartItemsCount = computed( () => {
     return items.value.length
@@ -54,7 +54,7 @@ const cartItemsCount = computed( () => {
                         <p class="font-medium">Cart</p>
                         <div
                             class="absolute -top-3 left-3 w-2 h-2 flex justify-center items-center bg-indigo-700 text-white p-2 rounded-full text-xs">
-                            {{ cartItemsCount }}
+                            {{ totalQuantity }}
                         </div>
                     </NuxtLink>
                 </div>
