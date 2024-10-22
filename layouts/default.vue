@@ -1,13 +1,11 @@
-<script setup>
-</script>
+<script setup></script>
 <template>
+  <div>
+    <MyHeader />
     <div>
-        <MyHeader/>
-        <div>
-            <slot/>
-        </div>
-        <MyFooter/>
+      <slot />
     </div>
+    <MyFooter />
+  </div>
 </template>
-<style scoped>
-</style>
+<style scoped></style>

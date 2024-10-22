@@ -1,2 +1,1 @@
-
-export const useCategories = () => useState('categories', () => [])
+export const useCategories = () => useState('categories', () => []);

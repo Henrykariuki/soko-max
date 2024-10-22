@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true, // Format files on save
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Use Prettier as the default formatter
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
