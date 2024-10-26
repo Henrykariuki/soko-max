@@ -52,7 +52,7 @@
             <div class="flex flex-row gap-1">
               <Star v-for="i in 5" :key="i" size="12" />
             </div>
-            <p class="text-gray-600 text-xs">(121)</p>
+            <p class="text-gray-600 text-xs">( 121 )</p>
           </div>
         </div>
         <div class="border-b border-slate-200 py-8">
