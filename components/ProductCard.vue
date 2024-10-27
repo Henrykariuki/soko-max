@@ -13,7 +13,7 @@
     <div
       class="max-h-full border border-gray-300 rounded-lg p-2 hover:shadow-lg hover:shadow-indigo-500/50 transition-shadow duration-300">
       <div class="relative">
-        <img class="rounded-md h-52" :src="product.image" >
+        <img class="rounded-md h-48 w-full object-cover" :src="product.image" >
         <div class="absolute p-1 rounded-full flex items-center bg-gray-200 top-2 right-2">
           <Heart size="14" />
         </div>
