@@ -61,8 +61,8 @@
           </div>
         </div>
         <div
-          class="border-b border-slate-200 md:py-8 flex flex-row justify-around md:items-center md:justify-between py-2">
-          <div class="flex items-center bg-gray-100 px-1 py-2 rounded-full">
+          class="border-b border-slate-200 md:py-8 flex flex-row justify-around items-center md:justify-between py-2">
+          <div >
             <QuantityButtons :product="data" :quantity="productInCart?.quantity || 0" />
           </div>
           <button
@@ -74,7 +74,7 @@
           <NuxtLink
             v-else
             to="/cart"
-            class="bg-indigo-500 text-white rounded-full px-10 md:px-20 py-2 hover:bg-indigo-600 mr-4">
+            class="bg-indigo-500 text-white rounded-full flex items-center px-10 md:px-20 py-2 hover:bg-indigo-600 mr-4">
             Checkout
           </NuxtLink>
         </div>

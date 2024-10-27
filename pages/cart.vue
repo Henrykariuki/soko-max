@@ -4,8 +4,7 @@
   const { items, totalPrice, removeFromCart } = useCart();
 </script>
 <template>
-  <div class="px-20">
-    <h1>Checkout</h1>
+  <div class="px-5">
     <div
       v-for="(product, index) in items"
       :key="index"
@@ -13,7 +12,7 @@
       <div class="flex items-center md:w-96">
         <div class="pt-2 flex flex-col items-center">
           <p class="font-semibold mb-2 text-lg">Product</p>
-          <img class="w-24 h-32" :src="product.image" >
+          <img class="w-28 h-32" :src="product.image" >
         </div>
         <div class="ml-4">
           <p class="font-semibold mb-4">{{ product.title }}</p>
@@ -31,7 +30,7 @@
           <p class="font-semibold">{{ product.price }}</p>
         </div>
         <div class="flex flex-col gap-8 md:justify-between md:items-center">
-          <p class="font-semibold mb-2 text-lg">Quantity</p>
+          <p class="font-semibold text-lg">Quantity</p>
           <QuantityButtons :product="product" :quantity="product.quantity"/>
         </div>
       </div>

@@ -18,7 +18,7 @@
 </script>
 
 <template>
-  <div class="flex items-center bg-indigo-500 text-white px-3 py-1 rounded-full">
+  <div class="flex items-center bg-indigo-500 text-white px-3 py-2 rounded-full">
     <button class="px-2" @click="decreamentQuantity(product)">
       <Minus size="16" />
     </button>
