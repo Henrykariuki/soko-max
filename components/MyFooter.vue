@@ -19,18 +19,24 @@
       </div>
       <div class="flex flex-col leading-8">
         <h2 class="text-2xl font-semibold">Contact</h2>
-        <button class="flex flex-row gap-2 items-center">
-          <Mail size="18" />
-          <p>Email</p>
-        </button>
-        <button class="flex flex-row gap-2 items-center">
-          <MessageCircle size="18" />
-          <p>WhatsApp</p>
-        </button>
-        <button class="flex flex-row gap-2 items-center">
+        <a href="mailto:henrykariuki17@gmail.com">
+          <button class="flex flex-row gap-2 items-center">
+            <Mail size="18" />
+            <p>Email</p>
+          </button>
+        </a>
+        <a href="https://wa.me/+254713140987" target="_blank">
+          <button class="flex flex-row gap-2 items-center">
+            <MessageCircle size="18" />
+            <p>WhatsApp</p>
+          </button>
+        </a>
+        <a href="tel:+1234567890">
+          <button class="flex flex-row gap-2 items-center">
           <Phone size="18" />
           <p>TEL +254713140987</p>
         </button>
+        </a>
       </div>
     </div>
     <div class="flex flex-row gap-2 md:flex-row md:gap-2 md:justify-center">
