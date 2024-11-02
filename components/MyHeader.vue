@@ -1,14 +1,19 @@
 <script setup>
   import { ShoppingCart, Search , ChevronDown, ChevronUp } from 'lucide-vue-next';
-  
+  import { onClickOutside } from '@vueuse/core';
 
   const categories = useCategories();
 
   const isExpanded = ref(false);
+  const  dropdownContainerRef = ref(null)
 
   const toggleCategories = () => {
     isExpanded.value = !isExpanded.value;
   };
+
+  onClickOutside(dropdownContainerRef, () => {
+    isExpanded.value = false;
+});
 
   const capitalizeCategory = (category) => {
     return category.charAt(0).toUpperCase() + category.slice(1);
@@ -59,26 +64,28 @@
         </button>
       </div>
       <div class="flex flex-col gap-4 md:flex md:flex-row md:gap-40 md:items-center">
-        <div
-          class="flex flex-row gap-4 w-32 md:w-44 md:gap-14 relative border border-slate-300 p-2 rounded-full items-center cursor-pointer"
-          @click="toggleCategories">
-          <p class="font-semibold">Categories</p>
-          <ChevronUp v-if="!isExpanded" size="15" />
-          <ChevronDown v-else size="15" />
-        </div>
-        <Transition name="fade">
+        <div ref="dropdownContainerRef">
           <div
-            v-if="isExpanded"
-            class="absolute top-28 mt-24 md:mt-6 py-4 pl-4 pr-6 leading-8 z-50 bg-white shadow-lg border rounded-md">
-            // eslint-disable-next-line vue/valid-v-for
-            <div v-for="category in categories" :key="category">
-              <NuxtLink :to="`/categories/${category}`">
-                {{ capitalizeCategory(category) }}
-              </NuxtLink>
-            </div>
+            class="flex flex-row gap-4 w-32 md:w-44 md:gap-14 relative border border-slate-300 p-2 rounded-full items-center cursor-pointer"
+            @click="toggleCategories">
+            <p class="font-semibold">Categories</p>
+            <ChevronUp v-if="!isExpanded" size="15" />
+            <ChevronDown v-else size="15" />
           </div>
-        </Transition>
-        <div class="wrapper py-2 flex w-full overflow-auto md:flex md:flex-row md:gap-2">
+          <Transition name="fade">
+            <div
+              v-if="isExpanded"  
+              class="absolute top-28 mt-24 md:mt-6 py-4 pl-4 pr-6 leading-8 z-50 bg-white shadow-lg border rounded-md">
+              
+              <div v-for="category in categories" :key="category">
+                <NuxtLink :to="`/categories/${category}`">
+                  {{ capitalizeCategory(category) }}
+                </NuxtLink>
+              </div>
+            </div>
+          </Transition>
+        </div>
+        <div class="wrapper py-2 flex  gap-2 w-full overflow-auto md:flex md:flex-row md:gap-2">
           <div v-for="category in categories" :key="category">
             <NuxtLink
               :to="`/categories/${category}`"
