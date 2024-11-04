@@ -35,16 +35,23 @@ export function useCart() {
     }
   };
 
-  const decreamentQuantity = (product) => {
+  //const decreamentQuantity = (product) => {
     //get the product in the cart based on the product id
-    const productInCart = items.value.find((e) => e.id === product.id);
-    if (!productInCart) {
-      return 
-    } else if ((product.quantity > 1)) {
-      productInCart.quantity--
-    } 
-  };
+    //const productInCart = items.value.find((e) => e.id === product.id);
+    //if (!productInCart) {
+      //return 
+    //} else if ((product.quantity > 1)) {
+     // productInCart.quantity--
+    //} 
+  //};
 
+   const decreamentQuantity = (product) => {
+     //get the product in the cart based on the product id
+     const productInCart = items.value.find((e) => e.id === product.id);
+     if (productInCart && productInCart.quantity > 1) {
+       productInCart.quantity--;
+     } 
+   };
 
   return {
     items,

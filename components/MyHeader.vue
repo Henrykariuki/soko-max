@@ -75,7 +75,7 @@
           <Transition name="fade">
             <div
               v-if="isExpanded"  
-              class="absolute top-28 mt-24 md:mt-6 py-4 pl-4 pr-6 leading-8 z-50 bg-white shadow-lg border rounded-md">
+              class="absolute top-20 mt-24 md:mt-6 py-4 pl-4 pr-6 leading-8 z-50 bg-white shadow-lg border rounded-md">
               
               <div v-for="category in categories" :key="category">
                 <NuxtLink :to="`/categories/${category}`">

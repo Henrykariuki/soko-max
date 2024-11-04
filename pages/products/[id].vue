@@ -62,8 +62,8 @@
         </div>
         <div
           class="border-b border-slate-200 md:py-8 flex flex-row justify-around items-center md:justify-between py-2">
-          <div >
-            <QuantityButtons :product="data" :quantity="productInCart?.quantity || 0" />
+          <div>
+            <QuantityButtons :product="data" :quantity="productInCart?.quantity || 0 " />
           </div>
           <button
             v-if="!productInCart"
